@@ -1,0 +1,25 @@
+{
+    "idEmpleado": 0,
+    "numeroEmpleado": "",
+    "puesto": "Administrador",
+    "estatus": 0,
+    "persona": {
+      "idPersona": 0,
+      "nombre": "Juan",
+      "apellidoP": "Perez",
+      "apellidoM": "Mendoza",
+      "genero": "H",
+      "domicilio": "Aquiles Serdan #302 Nuevo Valle de Moreno, Leon, Gto",
+      "telefono": "4777845688",
+      "rfc": "PEMJ010501",
+      "email": "juanperez@gmail.com"
+    },
+    "usuario": {
+      "idUsuario": 0,
+      "nombreUsuario": "juanperez",
+      "contrasenia": "1234",
+      "rol": "Empleado",
+      "token": "",
+      "dateLastToken": ""
+    }
+  }
