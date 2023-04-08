@@ -1,0 +1,49 @@
+
+[{"para insertarlo": "con id's 0"},
+  {
+  "idEmpleado": 0,
+  "numeroUnico": "",
+  "puesto": "Administrador",
+  "persona": {
+    "idPersona": 0,
+    "nombre": "Juan",
+    "apellidoP": "Camaney",
+    "apellidoM": "Perez",
+    "genero": "M",
+    "domicilio": "Calle de la esperanza #256 La Libertad, León, Guanajuato",
+    "telefono": "4778958654",
+    "rfc": "CAPJ020204",
+    "email": "juancamaney@santamaria.com"
+  },
+  "usuario": {
+    "idUsuario": 1,
+    "nombreUsuario": "juancamaney",
+    "contrasenia": "admin",
+    "fotografia": ""
+  }
+},
+
+{"para modificarlo": "el nombre será Juan Ignacio"},
+{
+  "idEmpleado": 11,
+  "numeroUnico": "ECAPJ1680483426",
+  "puesto": "Administrador",
+  "estatus": 0,
+  "persona": {
+      "idPersona": 11,
+      "nombre": "Juan Ignacio",
+      "apellidoP": "Camaney",
+      "apellidoM": "Perez",
+      "genero": "M",
+      "domicilio": "Calle de la esperanza #256 La Libertad, León, Guanajuato",
+      "telefono": "4778958654",
+      "rfc": "CAPJ020204",
+      "email": "juancamaney@santamaria.com"
+  },
+  "usuario": {
+      "idUsuario": 6,
+      "nombreUsuario": "juancamaney",
+      "contrasenia": "admin",
+      "fotografia": ""
+  }
+}]

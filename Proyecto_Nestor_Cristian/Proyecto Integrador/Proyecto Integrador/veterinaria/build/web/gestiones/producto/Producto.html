@@ -1,0 +1,80 @@
+<div class ="conteiner-fluid">
+    <div class ="row">
+        <div class="col-4" id='divDetalle'>
+            <div class="card colorCard">
+                <div class ="card-header">
+                    <button class="btn btn-sm btn-outline-danger float-end" onclick="setDetalleVisibleP(false)"><i class="fas fa-times"></i></button>
+                    <h4 class="text-center text-light" id="title">Detalle de Producto</h4>
+                </div>
+                <div class ="card-body" id="formulario">
+                    <div class="form">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="txtNombre" class="form-label text-light">Nombre </label>
+                                <input id="txtNombre" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="my-3">
+                                <label for="txtMarca" class="form-label text-light">Marca</label>
+                                <input id="txtMarca" type="text" class="form-control"/>
+                            </div>
+                            <div class="my-3">
+                                <label for="txtPrecio" class="form-label text-light">Precio</label>
+                                <input id="txtPrecio" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="my-3">
+                                <label for="txtEstatus" class="form-label text-light">Estatus</label>
+                                <input id="txtEstatus" type="text" class="form-control" readonly=""/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <!--<label for="txtCodigo" class="form-label text-light">C&oacute;digo De Producto</label>-->
+                                <input id="txtCodigo" type="text" class="form-control" hidden="" readonly=""/>
+                            </div>
+                        </div>
+                        <div class="my- text-center">
+                            <button class="btn btn-primary" onclick="guardar();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                            <button class="btn btn-danger mx-3" onclick="eliminar();"><i class="fas fa-trash"></i>&nbsp;&nbsp;Eliminar</button>
+                            <button class="btn btn-success" onclick="limpiarFormulario();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        <div class ="col-8" id="divTabla">
+            <div class="card colorCard">
+                <div class="card-header">
+                    <span class="text-center text-light" id="title">Cat&aacute;logo de Productos </span>
+                    <button class="btn btn-sm btn btn-danger float-end mx-4" onclick="cerrarModulo();">
+                        <i class="fas fa-times"></i>&nbsp;&nbsp;Cerrar M&oacute;dulo</button>
+                    <button class="btn btn-sm btn btn-warning float-end" onclick="setDetalleVisibleP(true); limpiarFormulario();">
+                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Nuevo</button>
+                </div>
+                <div class="card-body text-center">
+                    <table class="table text-light" id="catalogos">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nombre:</th>
+                                <th>Marca:</th>
+                                <th>Precio:</th>
+                                <th>Etatus:</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyProducto">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>           
+<script type="text/javascript" src="gestiones/producto/Producto.js"></script>
+<script type="text/javascript">
+                        inicializarModuloProducto();
+</script>
+

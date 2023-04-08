@@ -1,0 +1,79 @@
+<div class ="row" >
+    <div class="col-4" id="divDetalle" >
+        <div class="card colorCard">
+            <div class ="card-header">
+                <button class="btn btn-sm btn-outline-danger float-end" onclick="setDetalleVisible(false);"><i class="fas fa-times"></i></button>
+                <h2 class="text-center text-light">Detalle de Citas</h2>
+            </div>
+            <div class ="card-body" id="formulario">
+                <div class="form">
+                    <div class ="row">
+                        <div class="col-md-6">
+                            <label for="txtIdTrat" class="form-label text-light">C&oacute;digo del Detalle</label>
+                            <input id="txtIdTrat" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class ="row">
+                        <h5 class="text-light">Datos del detalle</h5>
+                        <div class="col-md-6">
+                            <label for="txtNombre" class="form-label text-light">Nombre Servicio</label>
+                            <input id="txtNombre" type="text" class="form-control"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="txtDescripcion" class="form-label text-light">Nombre Tratamiento</label>
+                            <input id="txtDescripcion" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class ="form-label text-light">Nombre Producto</label>
+                            <input id="txtNombreP" type="text" class="form-control"/></div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class ="form-label text-light">Costo</label>
+                            <input id="txtNombreP" type="text" class="form-control"/></div>
+                        </div>
+                </div>
+                </div>
+                    <div class="my-3 text-center">
+                        <button class="btn btn-primary" onclick="guardar();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                        <button class="btn btn-danger mx-3" onclick="eliminar();"><i class="fas fa-trash"></i>&nbsp;&nbsp;Eliminar</button>
+                        <button class="btn btn-success" onclick="limpiar();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                    </div>
+                </div>
+            </div>
+    <div class ="col-12" id="divTabla"  >
+        <div class="card colorCard" >
+            <div class="card-header">
+                <span class="text-center text-light">Cat&aacute;logo de detalle </span>
+                <button class="btn btn-sm btn-outline-danger float-end mx-4" onclick="cerrarModulo();">
+                    <i class="fas fsa-times"></i>&nbsp;&nbsp;Cerrar M&oacute;dulo</button>
+                <button class="btn btn-sm btn-outline-info float-end" onclick="setDetalleVisible(true);">
+                    <i class="fas fa-plus"></i>&nbsp;&nbsp;Nuevo</button>
+            </div>
+            <div class="card-body text-center" id="catalogos">
+                <table class="table text-light">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Servicio</th>
+                            <th>Nombre Tratamiento</th>
+                            <th>Nombre Producto</th>
+                            <th>Costo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyTratamientos">
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+<script type="text/javascript" src="gestiones/detallecitas/detallecitas.js"></script>
+<script type="text/javascript">
+    inicializarTratamiento();
+</script>

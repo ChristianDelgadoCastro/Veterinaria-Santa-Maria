@@ -1,0 +1,47 @@
+
+[{"para insertarlo": "con id's 0"},
+{
+  "idCliente": 0,
+  "numeroUnico": "",
+  "persona": {
+    "idPersona": 0,
+    "nombre": "Mario",
+    "apellidoP": "Moreno",
+    "apellidoM": "Reyes",
+    "genero": "M",
+    "domicilio": "Blvd. Rio Mayo s/n Col. 10 de Mayo, León, Guanajuato",
+    "telefono": "4777845658",
+    "rfc": "MORM061003",
+    "email": "cantinflas@gmail.com"
+  },
+  "usuario": {
+    "idUsuario": 0,
+    "nombreUsuario": "cantinflas",
+    "contrasenia": "1234",
+    "fotografia": ""
+  }
+},
+
+{"para modificarlo": "el nombre será Mario Mario"},
+{
+  "idCliente": 14,
+  "numeroUnico": "CMORM1680484132",
+  "estatus": 0,
+  "persona": {
+      "idPersona": 14,
+      "nombre": "Mario Mario",
+      "apellidoP": "Moreno",
+      "apellidoM": "Reyes",
+      "genero": "M",
+      "domicilio": "Blvd. Rio Mayo s/n Col. 10 de Mayo, León, Guanajuato",
+      "telefono": "4777845658",
+      "rfc": "MORM061003",
+      "email": "cantinflas@gmail.com"
+  },
+  "usuario": {
+      "idUsuario": 8,
+      "nombreUsuario": "cantinflas",
+      "contrasenia": "1234",
+      "fotografia": ""
+  }
+}]

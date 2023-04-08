@@ -1,0 +1,145 @@
+<div id="divCliente" class="contenedor">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div style="background-color: rgba(108, 248, 227,0.5)" class="col-md-5">
+                <h1 class="text-center mb-4">Detalles de Cliente</h1>
+                <form>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="txtIdCliente" class="form-label">ID Cliente</label>
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdCliente" readonly="">
+                            </div>
+                            <div class="col-4">
+                                <label for="txtIdPersona" class="form-label">ID Persona</label>
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdPersona" readonly="">
+                            </div>
+                            <div class="col-4">
+                                <label for="txtIdUsuario" class="form-label">ID Usuario</label>
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdUsuario" readonly="">
+                            </div>
+                        </div>
+                        <div class="row">                            
+                            <div class="col-8">
+                                <label for="txtNumeroCliente" class="form-label">N&uacute;mero &Uacute;nico</label>
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtNumeroCliente" readonly="">
+                                <input type="hidden" id="txtEstatusCliente" name="txtEstatusCliente">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="txtNombre" class="form-label">Nombre:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtNombre" placeholder="Nombre">
+                            </div>
+                            <div class="col-6">
+                                <label for="txtApellidoP" class="form-label">Apellido Paterno:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtApellidoP" placeholder="Apellido Paterno">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">                            
+                            <div class="col-6">
+                                <label for="txtApellidoM" class="form-label">Apellido Materno:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtApellidoM" placeholder="Apellido Materno">
+                            </div>
+                            <div class="col-6">
+                                <label for="cmbGenero" class="form-label">Selecciona un g&eacute;nero:</label>
+                                <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbGenero">
+                                    <option>G&eacute;nero:</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">                            
+                            <div class="col-6">
+                                <label for="imgFotografia" class="form-label">Fotograf&iacute;a:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" class="form-control" type="file" id="imgFotografia" onchange="cli.leerFoto()">
+                                <input type="hidden" id="txtFotoBase64" name="txtFotoBase64">
+                            </div>
+                            <div class="col-6">
+                                <label for="txtTelefono" class="form-label">Tel&eacute;fono</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtTelefono" placeholder="Tel&eacute;fono">
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="txtRFC" class="form-label">RFC:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtRFC" placeholder="RFC">
+                            </div>
+                            <div class="col-6">
+                                <label for="txtEmail" class="form-label">Email:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtEmail" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="txtDomicilio" class="form-label">Domicilio:</label>
+                                <input style="width: 180%; background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtDomicilio" placeholder="Domicilio">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="txtUsuario" class="form-label">Nombre de Usuario:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" id="txtUsuario" placeholder="Nombre de usuario:">
+                            </div>
+                            <div class="col-6">
+                                <label for="txtContrasenia" class="form-label">Contrase&ntilde;a:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="password" class="form-control" id="txtContrasenia" placeholder="Contrase&ntilde;a:">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="mb-3">
+                                <button onclick="cli.guardarCliente();" type="button" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+                                <button onclick="cli.cambiarEstatus();" type="button" class="btn btn-warning"><i class="fas fa-exchange-alt"></i> Cambiar estatus</button>
+                                <button onclick="cli.generarPDF();" type="button" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generar PDF</button>
+                                <button onclick="cli.limpiarFormulario();" type="button" class="btn btn-secondary"><i class="bi bi-x-lg"></i> Cancelar Acci&oacute;n</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div onkeydown="if(event.keyCode==13) cli.buscarClientes();" style="background-color: rgba(255, 255, 255,0.6)" class="col-md-7">
+                <h1 class="text-center mb-6">Clientes Activos</h1>
+                <div class="input-group mb-3">
+                    <input id="txtBuscador" style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" placeholder="Buscar cliente...">
+                    <div class="input-group-append">
+                        <button onclick="cli.buscarClientes();" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i>Buscar Cliente</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre completo</th>
+                            <th scope="col">Correo electr&oacute;nico</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Estatus</th>
+                            <th scope="col">Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyClientes"></tbody>
+                <div class="justify-content-center">
+                    <button style="background-color: rgba(7, 161, 24, 0.5)" onclick="cli.verActivos();" type="button" class="btn btn-success"><i class="fas fa-search"></i> Ver Activos</button>
+                    <button style="background-color: rgba(255, 0, 0, 0.5)" onclick="cli.verInactivos();" type="button" class="btn btn-danger"><i class="fas fa-search"></i> Ver Inactivos</button>
+                    <button style="background-color: rgba(0, 255, 247, 0.5)" onclick="cli.refrescarTabla();" type="button" class="btn btn-info"><i class="fas fa-search"></i> Ver Todos</button>
+                </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

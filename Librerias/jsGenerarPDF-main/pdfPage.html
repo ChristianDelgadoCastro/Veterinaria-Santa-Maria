@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar PDF</title>
+
+</head>
+<body>
+    <h1>Crear Archivos PDF</h1>
+    <div id="divEmpleado" class="contenedor">
+        <div class="row">
+            <div class="col">
+                <div class="card-header mt-2" style="padding-top: 0px; padding-bottom: 0px;">
+                    <div class="text-center">
+                        <span>
+                            <b><span class="h1" style="color: white">Gestión de empleados</span></b>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6" style="float: left;">
+                <div style="background-color: rgba(245, 242, 245 ,0.7);" class="card">
+                    <!-- Formulario -->
+                    <form>
+                        <div class="card-header" style="background-color: transparent; color: black; text-align: center;">
+                            <h2>Agregar nuevo empleado</h2>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="txtIdEmpleado">ID Empleado</label>
+                                        <input id="txtIdEmpleado" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="txtIdPersona">ID Persona</label>
+                                        <input id="txtIdPersona" type="text" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="txtIdUsuario">ID Usuario</label>
+                                        <input id="txtIdUsuario" type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="txtNumeroCliente">N&uacute;mero &Uacute;nico de Cliente</label>
+                                        <input id="txtNumeroEmpleado" type="text" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="txtNombre">Nombre:</label>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Ingresa el nombre">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtApellidoP">Apellido Paterno:</label>
+                                    <input type="text" class="form-control" id="txtApellidoP" placeholder="Ingresa el apellido">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtApellidoM">Apellido Materno:</label>
+                                    <input type="text" class="form-control" id="txtApellidoM" placeholder="Ingresa el apellido">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="cmbGenero" class="form-label" >G&eacute;nero:</label>
+                                    <select id="cmbGenero" class="form-select">
+                                        <option> G&eacute;nero:</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="O">Otro (prefiero no decirlo)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtDomicilio">Domicilio:</label>
+                                    <input type="text" class="form-control" id="txtDomicilio" placeholder="Ingresa el domicilio">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtTelefono">Teléfono:</label>
+                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Ingresa el número de teléfono">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="txtRFC">RFC:</label>
+                                    <input type="text" class="form-control" id="txtRFC" placeholder="Ingresa el RFC">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtEmail">Email:</label>
+                                    <input type="email" class="form-control" id="txtEmail" placeholder="Ingresa el email:">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="imgFotografia">Fotograf&iacute;a:</label>
+                                    <input type="file" class="form-control" id="imgFotografia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="form-group col-4">
+                                    <label for="txtUsuario">Nombre de usuario:</label>
+                                    <input type="text" class="form-control" id="txtUsuario" placeholder="Ingresa el RFC">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="txtContrasenia">Contrase&ntilde;a:</label>
+                                    <input type="password" class="form-control" id="txtContrasenia" placeholder="Ingresa el email:">
+                                </div>
+                                <div class="form-group col-4">
+                                    <label for="cmbPuesto" class="form-label" >Puesto:</label>
+                                    <select id="cmbPuesto" class="form-select">
+                                        <option> Puesto:</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Veterinario">Veterinario</option>
+                                        <option value="Secretario">Secretario(a)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-cols-8 text-center">              
+                            <button style="box-shadow: 0 5px 10px rgba(248,14,14,.8); border-radius: 20px"  class="btn btn-outline-success col-4 " onclick="emp.guardarEmpleado();" type="button"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                            <button style="box-shadow: 0 5px 10px rgba(14,248,32,.8); border-radius: 20px" class="btn btn-outline-danger col-4" onclick="emp.cambiarEstatus();;" type="button"><i class="fas fa-trash"></i>&nbsp;&nbsp;Eliminar</button>
+                            <button style="box-shadow: 0 5px 10px rgba(14,234,248,.8); border-radius: 20px" class="btn btn-outline-info col-4" onclick="generarPDF();;" type="button"><i class="fas fa-book-open"></i>&nbsp;&nbsp;Generar Reporte</button>
+                        </div> 
+                    </form>
+                </div>
+            </div>
+            <div class="col-6" style="float: right;">
+                <div style="background-color: rgba(67,241,255,0.7); display: table;" class="card">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr style="background-color: rgba(255,255,255,0.7);">
+                                <th style="background-color: rgba(201, 246, 234 ,0.7);">ID</th>
+                                <th style="background-color: rgba(201, 243, 246, 0.7)">Nombre Completo</th>
+                                <th style="background-color: rgba(201, 246, 234 ,0.7);">Tel&eacute;fono</th>
+                                <th style="background-color: rgba(201, 243, 246, 0.7)">Email</th>
+                                <th style="background-color: rgba(201, 246, 234 ,0.7);">Estatus</th>
+                                <th style="background-color: rgba(201, 243, 246, 0.7)">Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyEmpleados"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="jspdf.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+            function generarPDF(){
+                
+                //Variable para inicializar un nuevo pdf
+                var doc=new jsPDF();
+                //variales de todos los id's
+                let txtEmpNombre=document.getElementById('txtNombre').value;
+                let txtEmpApellidoP=document.getElementById('txtApellidoP').value;
+                let txtEmpApellidoM=document.getElementById('txtApellidoM').value;
+                let txtEmpGenero=document.getElementById('cmbGenero').value;
+                let txtEmpDomicilio=document.getElementById('txtDomicilio').value;
+                let txtEmpTelefono=document.getElementById('txtTelefono').value;
+                let txtEmpRFC=document.getElementById('txtRFC').value;
+                let txtEmpEmail=document.getElementById('txtEmail').value;
+                let txtEmpPuesto=document.getElementById('cmbPuesto').value;
+                
+                doc.text(20,20,"Nombre: "+txtEmpNombre);
+                doc.text(20,30,"Apellido paterno: "+txtEmpApellidoP);
+                doc.text(20,40,"Apellido materno "+txtEmpApellidoM);
+                doc.text(20,50,"Genero "+txtEmpGenero);
+                doc.text(20,60,"Domicilio: "+txtEmpDomicilio);
+                doc.text(20,70,"Telefono: "+txtEmpTelefono);
+                doc.text(20,80,"RFC: "+txtEmpRFC);
+                doc.text(20,90,"Email: "+txtEmpEmail);
+                doc.text(20,100,"Email: "+txtEmpPuesto);
+                
+                doc.save('Test.pdf');
+            }
+        </script>
+</body>
+</html>

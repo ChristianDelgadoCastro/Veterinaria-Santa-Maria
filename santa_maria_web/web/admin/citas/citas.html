@@ -1,0 +1,82 @@
+<div id="divCitas" class="contenedor">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div style="background-color: rgba(108, 248, 227,0.5)" class="col-md-5">
+                <h1 class="text-center mb-4">Agendar una Cita</h1>
+                <form>
+                    <div class="card-body">
+                        <div class="row">                            
+                            <div class="col-8">
+                                <label for="txtIdCita" class="form-label">ID Cita</label>
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdCita" readonly="">
+                                <input type="hidden" id="txtEstatusCita" name="txtEstatusCita">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="cmbCliente" class="form-label">Cliente</label>
+                                <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbCliente">
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="cmbEmpleado" class="form-label">Empleado</label>
+                                <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbEmpleado">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="dtFecha" class="form-label">Fecha:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="date" class="form-control" id="dtFecha">
+                            </div>
+                            <div class="col-12">
+                                <label for="hrHora" class="form-label">Hora:</label>
+                                <input style="background-color: rgba(255,255,255,0.8);" type="time" class="form-control" id="hrHora">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="mb-3">
+                                <button onclick="cit_emp.agendarCita();" type="button" class="btn btn-success"><i class="fas fa-calendar-week"></i> Agendar cita</button>
+                                <button onclick="cit_emp.cambiarEstatus();" type="button" class="btn btn-warning"><i class="fas fa-exchange-alt"></i> Cambiar estatus</button>
+                                <button onclick="cit_emp.limpiarFormulario();" type="button" class="btn btn-secondary"><i class="bi bi-x-lg"></i> Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div onkeydown="if (event.keyCode == 13)
+                        cit_emp.buscarCitas();" style="background-color: rgba(255, 255, 255,0.6)" class="col-md-7">
+                <h1 class="text-center mb-6">Lista de Citas</h1>
+                <div class="input-group mb-3">
+                    <input id="txtBuscador" style="background-color: rgba(255,255,255,0.8);" type="text" class="form-control" placeholder="Buscar cita...">
+                    <div class="input-group-append">
+                        <button onclick="cit_emp.buscarCitas();" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i>Buscar Cita</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Cliente y Empleado</th>
+                            <th scope="col">Estatus</th>
+                            <th scope="col">Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyCitas"></tbody>
+                    <div class="justify-content-center">
+                        <button style="background-color: rgba(7, 161, 24, 0.5)" onclick="cit_emp.verActivos();" type="button" class="btn btn-success"><i class="fas fa-search"></i> Ver Activas</button>
+                        <button style="background-color: rgba(255, 0, 0, 0.5)" onclick="cit_emp.verInactivos();" type="button" class="btn btn-danger"><i class="fas fa-search"></i> Ver Inactivas</button>
+                        <button style="background-color: rgba(0, 255, 247, 0.5)" onclick="cit_emp.refrescarTabla();" type="button" class="btn btn-info"><i class="fas fa-search"></i> Ver Todas</button>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
