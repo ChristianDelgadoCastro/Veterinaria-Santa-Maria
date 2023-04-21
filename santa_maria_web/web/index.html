@@ -14,15 +14,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link rel="stylesheet" type="text/css" href="style/font_awesome_5_15_3/css/fontawesome.min.css">
         <link href="style/font_awesome_5_15_3/css/all.css" rel="stylesheet">
         <link href="style/sweetalert2/sweetalert2.css" rel="stylesheet">
+        <style>
+            .background-image {
+                background-image: url('media/perritoLogin.png');
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
     </head>
-    <body>
-        <video src="media/fondo_pantalla.mp4" autoplay muted loop></video>
+    <body class="background-image">
         <div class="divLogin">
             <div class="logo-container">
                 <img src="media/logo.png" alt="logo de la veterinaria">
             </div>
             <h1>Bienvenido a Santa Mar&iacute;a</h1>
-            <form onkeydown="if(event.keyCode==13) iniciarSesion();">
+            <form onkeydown="if (event.keyCode == 13)
+                        iniciarSesion();">
                 <div class="form-group">
                     <label for="txtUsuario">Usuario:</label>
                     <input type="text" id="txtUsuario" placeholder="Usuario">
@@ -32,7 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <input type="password" id="txtContrasenia" placeholder="Contraseña">
                 </div>
                 <button type="button" onclick="iniciarSesion();">Iniciar sesión</button>
-                <p>¿No tienes una cuenta? <a href="#">Regístrate ahora</a></p>
+                <p>¿No tienes una cuenta? <a href="registro/index.html">Regístrate ahora</a></p>
             </form>
         </div>
         <script src="js/login.js"></script>

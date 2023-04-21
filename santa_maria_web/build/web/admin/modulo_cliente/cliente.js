@@ -155,8 +155,8 @@ export function cargarDetalles(i) {
         console.log("Mi estatus es " + d.getElementById("txtEstatusCliente").value)
         // Agregamos esta línea para actualizar el valor de txtFotoBase64 con la fotografía almacenada
         d.getElementById("txtFotoBase64").value = c.usuario.fotografia;
-        console.log("Lo que tengo en la base de datos: "+c.usuario.fotografia)
-        console.log("Lo que tiene el formulario: "+d.getElementById("txtFotoBase64").value)
+        console.log("Lo que tengo en la base de datos: " + c.usuario.fotografia)
+        console.log("Lo que tiene el formulario: " + d.getElementById("txtFotoBase64").value)
     } else {
         Swal.fire('', 'No se encontró el cliente', 'warning');
     }
@@ -265,7 +265,7 @@ export function limpiarFormulario() {
 }
 
 export function cambiarEstatus() {
-    
+
     let idCliente = parseInt(document.getElementById("txtIdCliente").value);
     let estatusCliente = parseInt(document.getElementById("txtEstatusCliente").value);
     let url;
@@ -319,58 +319,113 @@ export function cambiarEstatus() {
 }
 
 export function generarPDF() {
-    alert("Hola si funciono owowowo")
+    //alert("Hola si funciono owowowo")
     //Variable para inicializar un nuevo pdf
-    var doc = new jsPDF();
+    var doc = new jsPDF('l', '', 'letter');
+    doc.setFillColor(255, 0, 0);
     //variales de todos los id's
     let txtCliNombre = d.getElementById('txtNombre').value;
     let txtCliApellidoP = d.getElementById('txtApellidoP').value;
     let txtCliApellidoM = d.getElementById('txtApellidoM').value;
     let txtCliGenero = d.getElementById('cmbGenero').value;
+    if (txtCliGenero === 'M') {
+        txtCliGenero = 'Masculino';
+    } else if (txtCliGenero === 'F') {
+        txtCliGenero = 'Femenino';
+    } else if (txtCliGenero === 'O') {
+        txtCliGenero = 'Otro';
+    } else {
+        txtCliGenero = 'Desconocido';
+    }
     let txtCliDomicilio = d.getElementById('txtDomicilio').value;
     let txtCliTelefono = d.getElementById('txtTelefono').value;
     let txtCliRFC = d.getElementById('txtRFC').value;
     let txtCliEmail = d.getElementById('txtEmail').value;
-    //Nombre
-    doc.setFontType("bold");
-    doc.text(20, 20, "Nombre: ");
-    doc.setFontType("italic");
-    doc.text(45, 20, txtCliNombre);
-    //Apellido paterno
-    doc.setFontType("bold");
-    doc.text(20, 30, "Apellido paterno: ");
-    doc.setFontType("italic");
-    doc.text(70, 30, txtCliApellidoP);
-    //Apellido materno
-    doc.setFontType("bold");
-    doc.text(20, 40, "Apellido materno: ");
-    doc.setFontType("italic");
-    doc.text(70, 40, txtCliApellidoM);
-    //Genero
-    doc.setFontType("bold");
-    doc.text(20, 50, "Genero: ");
-    doc.setFontType("italic");
-    doc.text(45, 50, txtCliGenero);
-    //Domicilio
-    doc.setFontType("bold");
-    doc.text(20, 60, "Domicilio: ");
-    doc.setFontType("italic");
-    doc.text(50, 60, txtCliDomicilio);
-    //Telefono
-    doc.setFontType("bold");
-    doc.text(20, 70, "Telefono: ");
-    doc.setFontType("italic");
-    doc.text(50, 70, txtCliTelefono);
-    //RFC
-    doc.setFontType("bold");
-    doc.text(20, 80, "RFC: ");
-    doc.setFontType("italic");
-    doc.text(35, 80, txtCliRFC);
-    //Email
-    doc.setFontType("bold");
-    doc.text(20, 90, "Email: ");
-    doc.setFontType("italic");
-    doc.text(45, 90, txtCliEmail);
+    //let fotoVete = "../../media/logo.png";
 
-    doc.save('Reporte ' + txtCliNombre + ' ' + txtCliApellidoP + ' ' + txtCliApellidoM + '.pdf');
+    let fotoVete = new Image();
+    fotoVete.src = "../media/logo.png";
+    let fotoCliente = new Image();
+    let fotoClienteValor = d.getElementById("txtFotoBase64").value;
+    if (fotoClienteValor === "") {
+        // Si el campo está vacío, establecemos una imagen por defecto
+        Swal.fire({
+            icon: "warning",
+            title: "Carga una fotografía primero",
+            showConfirmButton: true,
+            confirmButtonText: "Aceptar",
+            allowOutsideClick: false,
+        });
+    } else {
+        // Si el campo tiene valor, usamos la imagen correspondiente
+        fotoCliente.src = fotoClienteValor;
+    }
+
+    fotoVete.onload = () => {
+        //Fotografia Veterinaria
+        doc.addImage(fotoVete, "PNG", 15, 0, 80, 70);
+        // Establecer el color de relleno del rectángulo como azul claro
+        doc.setFillColor(200, 220, 255);
+        // Dibujar un rectángulo 
+        doc.rect(200, 60, 50, 50, 'F');
+        //Fotografia del cliente
+        doc.addImage(fotoCliente, "JPEG", 202.5, 62.5, 45, 45);
+        //Encabezado
+        doc.setFont("courier");
+        doc.setFontSize(28);
+        doc.text(80, 35, 'Bienvenido a la Veterinaria');
+        doc.setFont("courier");
+        doc.setFontSize(28);
+        doc.setFontType("bold");
+        doc.text(110, 45, '"Santa María"');
+        doc.setFont("courier");
+        doc.setFontType("italic");
+        doc.setFontSize(14);
+        doc.text(80, 55, 'Este documento contiene los datos de nuestro cliente');
+        //Nombre
+        doc.setFontType("bold");
+        doc.setFontSize(14);
+        doc.text(20, 80, "Nombre: ");
+        doc.setFontType("italic");
+        doc.text(45, 80, txtCliNombre);
+        //Apellido paterno
+        doc.setFontType("bold");
+        doc.text(20, 90, "Apellido paterno: ");
+        doc.setFontType("italic");
+        doc.text(70, 90, txtCliApellidoP);
+        //Apellido materno
+        doc.setFontType("bold");
+        doc.text(20, 100, "Apellido materno: ");
+        doc.setFontType("italic");
+        doc.text(70, 100, txtCliApellidoM);
+        //Genero
+        doc.setFontType("bold");
+        doc.text(20, 110, "Genero: ");
+        doc.setFontType("italic");
+        doc.text(45, 110, txtCliGenero);
+        //Domicilio
+        doc.setFontType("bold");
+        doc.text(20, 120, "Domicilio: ");
+        doc.setFontType("italic");
+        doc.text(50, 120, txtCliDomicilio);
+        //Telefono
+        doc.setFontType("bold");
+        doc.text(20, 130, "Telefono: ");
+        doc.setFontType("italic");
+        doc.text(50, 130, txtCliTelefono);
+        //RFC
+        doc.setFontType("bold");
+        doc.text(20, 140, "RFC: ");
+        doc.setFontType("italic");
+        doc.text(35, 140, txtCliRFC);
+        //Email
+        doc.setFontType("bold");
+        doc.text(20, 150, "Email: ");
+        doc.setFontType("italic");
+        doc.text(40, 150, txtCliEmail);
+
+        doc.save('Reporte ' + txtCliNombre + ' ' + txtCliApellidoP + ' ' + txtCliApellidoM + '.pdf');
+    };
+
+
 }

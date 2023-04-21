@@ -54,10 +54,10 @@ INSERT INTO empleado(numeroUnico, puesto, idPersona, idUsuario)
 VALUES ("DECC7985647", "Administrador", 3, 3);
 -- EMPLEADO 4
 INSERT INTO empleado(numeroUnico, puesto, idPersona, idUsuario)
-VALUES ("SANX7854689","Administrador", 4, 4);
+VALUES ("SANX7854689","Veterinario", 4, 4);
 -- EMPLEADO 5
 INSERT INTO empleado(numeroUnico, puesto, idPersona, idUsuario)
-VALUES ("AARV785468", "Administrador", 5, 5);
+VALUES ("AARV785468", "Secretario", 5, 5);
 
 -- CLIENTES PARA PRUEBAS
 
@@ -112,14 +112,16 @@ VALUES ("PAOM47856987", 9, 9);
 INSERT INTO cliente(numeroUnico, idPersona, idUsuario)
 VALUES ("FOGB45789754", 10, 10);
 
--- INSERTAMOS DATOS DE MASCOTAS
-INSERT INTO mascota(nombre, especie, raza, genero, edad, peso, descripcion, idCliente) 
-VALUES("Luki", "Perro", "Pitbull", "Macho", "2 años", 17.5, "Mediano de color cafe", 1);
-INSERT INTO mascota(nombre, especie, raza, genero, edad, peso, descripcion, idCliente) 
-VALUES("Hachi", "Perro", "Frespol", "Macho", "5 años", 12.0, "Pequeño de color negro con blanco", 2);
-INSERT INTO mascota(nombre, especie, raza, genero, edad, peso, descripcion, idCliente) 
-VALUES("Tomas", "Perro", "Boxer", "Macho", "8 años", 25.6, "Grande de color negro", 3);
-INSERT INTO mascota(nombre, especie, raza, genero, edad, peso, descripcion, idCliente) 
-VALUES("Frida", "Perro", "Pug", "Hembra", "3 años", 14.7, "Pequeño de color cafe", 4);
-INSERT INTO mascota(nombre, especie, raza, genero, edad, peso, descripcion, idCliente) 
-VALUES("Lucas", "Perro", "Gran danes", "Macho", "6 años", 38.4, "Grande de color negro con manchas blancas", 5);
+-- UNAS MASCOTITAS PARA PRUEBAS
+
+INSERT INTO mascota (collar, nombre, especie, raza, genero, edad, peso, detalles, idCliente) 
+VALUES ('d7b0e94e', 'Sanson', 'Perro', 'Pug', 'Macho', '4 meses', '5', 'Se está peleando con el diablo', '1');
+INSERT INTO mascota (collar, nombre, especie, raza, genero, edad, peso, detalles, idCliente) 
+VALUES ('9a474fbf', 'Pichirilo', 'Perro', 'Pitbull', 'Macho', '4 años', '30', 'Tiene una pata chueca', '2');
+INSERT INTO mascota (nombre, especie, raza, genero, edad, peso, detalles, idCliente) 
+VALUES ('Porqueria', 'Gato', 'Balines', 'Macho', '2 años', '2', 'No quiere comer desde hace 2 dias', '3');
+INSERT INTO mascota (nombre, especie, raza, genero, edad, peso, detalles, idCliente) 
+VALUES ('Milanesa', 'Perro', 'Chihuahua', 'Hembra', '1 año', '1', 'Anda bien bravo desde hace 3 dias', '4');
+INSERT INTO mascota (nombre, especie, raza, genero, edad, peso, detalles, idCliente) 
+VALUES ('Michi', 'Gato', 'Asiatico', 'Hembra', '1 año', '2', 'Se le metio el diablo jajajajaja', '5');
+

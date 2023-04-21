@@ -276,6 +276,7 @@ begin
     clienteTelefono like concat('%', datoBusqueda, '%') or
     clienteRFC like concat('%', datoBusqueda, '%') OR
     clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%') OR
     empleadoNumeroUnico like concat('%', datoBusqueda, '%') OR
     empleadoPuesto like concat('%', datoBusqueda, '%') OR
     empleadoNombre like concat('%', datoBusqueda, '%') OR 
@@ -284,7 +285,176 @@ begin
     empleadoDomicilio like concat('%', datoBusqueda, '%') OR 
     empleadoTelefono like concat('%', datoBusqueda, '%') OR 
     empleadoRFC like concat('%', datoBusqueda, '%') OR 
-    empleadoEmail like concat('%', datoBusqueda, '%'));
+    empleadoEmail like concat('%', datoBusqueda, '%') OR
+    empleadoToken like concat('%', datoBusqueda, '%'));
 end
 $$
 delimiter ;
+
+-- BUSCAR CITAS ACTIVAS PARA CLIENTES Y EMPLEADOS
+DROP PROCEDURE IF exists buscarCitasActivas;
+DELIMITER $$
+CREATE procedure buscarCitasActivas(in datoBusqueda varchar(100))
+begin
+	select * from v_citas_activas
+	where (
+    fechaCita like concat('%', datoBusqueda, '%') or
+    horaCita like concat('%', datoBusqueda, '%') or
+    clienteNumeroUnico like concat('%', datoBusqueda, '%') or
+    clienteNombre like concat('%', datoBusqueda, '%') or
+    clienteApellidoP like concat('%', datoBusqueda, '%') or
+    clienteApellidoM like concat('%', datoBusqueda, '%') or
+    clienteGenero like concat('%', datoBusqueda, '%') or
+    clienteDomicilio like concat('%', datoBusqueda, '%') or
+    clienteTelefono like concat('%', datoBusqueda, '%') or
+    clienteRFC like concat('%', datoBusqueda, '%') OR
+    clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%') OR
+    empleadoNumeroUnico like concat('%', datoBusqueda, '%') OR
+    empleadoPuesto like concat('%', datoBusqueda, '%') OR
+    empleadoNombre like concat('%', datoBusqueda, '%') OR 
+    empleadoApellidoP like concat('%', datoBusqueda, '%') OR 
+    empleadoApellidoM like concat('%', datoBusqueda, '%') OR 
+    empleadoDomicilio like concat('%', datoBusqueda, '%') OR 
+    empleadoTelefono like concat('%', datoBusqueda, '%') OR 
+    empleadoRFC like concat('%', datoBusqueda, '%') OR 
+    empleadoEmail like concat('%', datoBusqueda, '%') OR
+    empleadoToken like concat('%', datoBusqueda, '%'));
+end
+$$
+delimiter ;
+
+-- BUSCAR CITAS ACTIVAS PARA CLIENTES Y EMPLEADOS
+DROP PROCEDURE IF exists buscarCitasInactivas;
+DELIMITER $$
+CREATE procedure buscarCitasInactivas(in datoBusqueda varchar(100))
+begin
+	select * from v_citas_inactivas
+	where (
+    fechaCita like concat('%', datoBusqueda, '%') or
+    horaCita like concat('%', datoBusqueda, '%') or
+    clienteNumeroUnico like concat('%', datoBusqueda, '%') or
+    clienteNombre like concat('%', datoBusqueda, '%') or
+    clienteApellidoP like concat('%', datoBusqueda, '%') or
+    clienteApellidoM like concat('%', datoBusqueda, '%') or
+    clienteGenero like concat('%', datoBusqueda, '%') or
+    clienteDomicilio like concat('%', datoBusqueda, '%') or
+    clienteTelefono like concat('%', datoBusqueda, '%') or
+    clienteRFC like concat('%', datoBusqueda, '%') OR
+    clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%') OR
+    empleadoNumeroUnico like concat('%', datoBusqueda, '%') OR
+    empleadoPuesto like concat('%', datoBusqueda, '%') OR
+    empleadoNombre like concat('%', datoBusqueda, '%') OR 
+    empleadoApellidoP like concat('%', datoBusqueda, '%') OR 
+    empleadoApellidoM like concat('%', datoBusqueda, '%') OR 
+    empleadoDomicilio like concat('%', datoBusqueda, '%') OR 
+    empleadoTelefono like concat('%', datoBusqueda, '%') OR 
+    empleadoRFC like concat('%', datoBusqueda, '%') OR 
+    empleadoEmail like concat('%', datoBusqueda, '%') OR
+    empleadoToken like concat('%', datoBusqueda, '%'));
+end
+$$
+delimiter ;
+
+-- BUSCAR MASCOTAS
+DROP PROCEDURE IF exists buscarMascotas;
+DELIMITER $$
+CREATE procedure buscarMascotas(in datoBusqueda varchar(100))
+begin
+	select * from v_mascotas
+	where (
+    mascotaNumeroUnico like concat('%', datoBusqueda, '%') or
+    collar like concat('%', datoBusqueda, '%') or
+    mascotaNombre like concat('%', datoBusqueda, '%') or
+    especie like concat('%', datoBusqueda, '%') or
+    raza like concat('%', datoBusqueda, '%') or
+    mascotaGenero like concat('%', datoBusqueda, '%') or
+    edad like concat('%', datoBusqueda, '%') or
+    peso like concat('%', datoBusqueda, '%') or
+    detalles like concat('%', datoBusqueda, '%') or
+    mascotaEstatus like concat('%', datoBusqueda, '%') OR
+    clienteNumeroUnico like concat('%', datoBusqueda, '%') OR
+    clienteEstatus like concat('%', datoBusqueda, '%') OR
+    idPersonaCliente like concat('%', datoBusqueda, '%') OR
+    clienteNombre like concat('%', datoBusqueda, '%') OR
+    clienteApellidoP like concat('%', datoBusqueda, '%') OR 
+    clienteApellidoM like concat('%', datoBusqueda, '%') OR 
+    clienteGenero like concat('%', datoBusqueda, '%') OR 
+    clienteDomicilio like concat('%', datoBusqueda, '%') OR
+    clienteTelefono like concat('%', datoBusqueda, '%') OR 
+    clienteRFC like concat('%', datoBusqueda, '%') OR 
+    clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%'));
+end
+$$
+delimiter ;
+
+-- BUSCAR MASCOTAS ACTIVAS
+DROP PROCEDURE IF exists buscarMascotasActivas;
+DELIMITER $$
+CREATE procedure buscarMascotasActivas(in datoBusqueda varchar(100))
+begin
+	select * from v_mascotas_activas
+	where (
+    mascotaNumeroUnico like concat('%', datoBusqueda, '%') or
+    collar like concat('%', datoBusqueda, '%') or
+    mascotaNombre like concat('%', datoBusqueda, '%') or
+    especie like concat('%', datoBusqueda, '%') or
+    raza like concat('%', datoBusqueda, '%') or
+    mascotaGenero like concat('%', datoBusqueda, '%') or
+    edad like concat('%', datoBusqueda, '%') or
+    peso like concat('%', datoBusqueda, '%') or
+    detalles like concat('%', datoBusqueda, '%') or
+    mascotaEstatus like concat('%', datoBusqueda, '%') OR
+    clienteNumeroUnico like concat('%', datoBusqueda, '%') OR
+    clienteEstatus like concat('%', datoBusqueda, '%') OR
+    idPersonaCliente like concat('%', datoBusqueda, '%') OR
+    clienteNombre like concat('%', datoBusqueda, '%') OR
+    clienteApellidoP like concat('%', datoBusqueda, '%') OR 
+    clienteApellidoM like concat('%', datoBusqueda, '%') OR 
+    clienteGenero like concat('%', datoBusqueda, '%') OR 
+    clienteDomicilio like concat('%', datoBusqueda, '%') OR
+    clienteTelefono like concat('%', datoBusqueda, '%') OR 
+    clienteRFC like concat('%', datoBusqueda, '%') OR 
+    clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%') AND
+    mascotaEstatus = 1);
+end
+$$
+delimiter ;
+
+-- BUSCAR MASCOTAS INACTIVAS
+DROP PROCEDURE IF exists buscarMascotasInactivas;
+DELIMITER $$
+CREATE procedure buscarMascotasInactivas(in datoBusqueda varchar(100))
+begin
+	select * from v_mascotas_inactivas
+	where (
+    mascotaNumeroUnico like concat('%', datoBusqueda, '%') or
+    collar like concat('%', datoBusqueda, '%') or
+    mascotaNombre like concat('%', datoBusqueda, '%') or
+    especie like concat('%', datoBusqueda, '%') or
+    raza like concat('%', datoBusqueda, '%') or
+    mascotaGenero like concat('%', datoBusqueda, '%') or
+    edad like concat('%', datoBusqueda, '%') or
+    peso like concat('%', datoBusqueda, '%') or
+    detalles like concat('%', datoBusqueda, '%') or
+    mascotaEstatus like concat('%', datoBusqueda, '%') OR
+    clienteNumeroUnico like concat('%', datoBusqueda, '%') OR
+    clienteEstatus like concat('%', datoBusqueda, '%') OR
+    idPersonaCliente like concat('%', datoBusqueda, '%') OR
+    clienteNombre like concat('%', datoBusqueda, '%') OR
+    clienteApellidoP like concat('%', datoBusqueda, '%') OR 
+    clienteApellidoM like concat('%', datoBusqueda, '%') OR 
+    clienteGenero like concat('%', datoBusqueda, '%') OR 
+    clienteDomicilio like concat('%', datoBusqueda, '%') OR
+    clienteTelefono like concat('%', datoBusqueda, '%') OR 
+    clienteRFC like concat('%', datoBusqueda, '%') OR 
+    clienteEmail like concat('%', datoBusqueda, '%') OR
+    clienteToken like concat('%', datoBusqueda, '%') AND
+    mascotaEstatus = 0);
+end
+$$
+delimiter ;
+

@@ -1,7 +1,7 @@
--- BUSCAR CITAS
-DROP PROCEDURE IF exists buscarCitas;
+-- BUSCAR CITAS PARA QUE CADA CLIENTE O EMPLEADO VEA SOLO LAS SUYAS, ACTIVAS
+DROP PROCEDURE IF exists buscarCitasActivas;
 DELIMITER $$
-CREATE procedure buscarCitas(in datoBusqueda varchar(100))
+CREATE procedure buscarCitasActivas(in datoBusqueda varchar(100))
 begin
 	select * from v_citas
 	where (
@@ -24,7 +24,8 @@ begin
     empleadoDomicilio like concat('%', datoBusqueda, '%') OR 
     empleadoTelefono like concat('%', datoBusqueda, '%') OR 
     empleadoRFC like concat('%', datoBusqueda, '%') OR 
-    empleadoEmail like concat('%', datoBusqueda, '%'));
+    empleadoEmail like concat('%', datoBusqueda, '%') AND
+    citaEstatus = 1);
 end
 $$
 delimiter ;

@@ -1,0 +1,17 @@
+{
+        "idMascota": 0,
+        "collar": "",
+        "fotografia": "",
+        "nombre": "Ramoncito",
+        "especie": "Perro",
+        "raza": "boxer",
+        "genero": "Macho",
+        "edad": "4 años",
+        "peso": 10.0,
+        "detalles": "Tiene moquillo",
+        "estatus": 1,
+        "cliente": {
+            "idCliente": 2
+            }
+        }
+    

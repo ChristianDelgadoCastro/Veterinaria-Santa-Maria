@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background-image: url('../media/perrito.jpg');
+    background-image: var(--bg-image);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -92,12 +92,13 @@ header{
 }
 
 label #sidebar_btn{
+    top: 20px;
     z-index: 1;
     color: #fff;
     position: fixed;
     left: 400px;
     padding: 2px;
-    font-size: 20px;
+    font-size: 30px;
     margin: 1px 0;
     transition: 0.5s;
     transition-property:color;
@@ -143,6 +144,26 @@ label #sidebar_btn:hover{
     background-position: center;
     background-size: cover;
 }
+
+.contenedor-2{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+    background-size: cover;
+}a
+
+.contenedor_registro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 
 .card {
     float: left;

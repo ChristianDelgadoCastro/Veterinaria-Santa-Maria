@@ -64,16 +64,18 @@ SELECT c.idCita, c.fechaCita, c.horaCita, c.estatus AS citaEstatus,
        cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
        pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
        pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
-       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken,
        e.idEmpleado, e.numeroUnico AS empleadoNumeroUnico, e.puesto AS empleadoPuesto, e.estatus AS empleadoEstatus,
        pe.idPersona AS idPersonaEmpleado, pe.nombre AS empleadoNombre, pe.apellidoP AS empleadoApellidoP,
        pe.apellidoM AS empleadoApellidoM, pe.genero AS empleadoGenero, pe.domicilio AS empleadoDomicilio,
-       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail
+       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail, ue.token AS empleadoToken
 FROM cita c
 INNER JOIN cliente cl ON c.idCliente = cl.idCliente
 INNER JOIN empleado e ON c.idEmpleado = e.idEmpleado
 INNER JOIN persona pc ON cl.idPersona = pc.idPersona
 INNER JOIN persona pe ON e.idPersona = pe.idPersona
+INNER JOIN usuario uc ON cl.idUsuario = uc.idUsuario
+INNER JOIN usuario ue ON e.idUsuario = ue.idUsuario
 ORDER BY idCita
 );
 
@@ -84,16 +86,18 @@ SELECT c.idCita, c.fechaCita, c.horaCita, c.estatus AS citaEstatus,
        cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
        pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
        pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
-       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken,
        e.idEmpleado, e.numeroUnico AS empleadoNumeroUnico, e.puesto AS empleadoPuesto, e.estatus AS empleadoEstatus,
        pe.idPersona AS idPersonaEmpleado, pe.nombre AS empleadoNombre, pe.apellidoP AS empleadoApellidoP,
        pe.apellidoM AS empleadoApellidoM, pe.genero AS empleadoGenero, pe.domicilio AS empleadoDomicilio,
-       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail
+       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail, ue.token AS empleadoToken
 FROM cita c
 INNER JOIN cliente cl ON c.idCliente = cl.idCliente
 INNER JOIN empleado e ON c.idEmpleado = e.idEmpleado
 INNER JOIN persona pc ON cl.idPersona = pc.idPersona
 INNER JOIN persona pe ON e.idPersona = pe.idPersona
+INNER JOIN usuario uc ON cl.idUsuario = uc.idUsuario
+INNER JOIN usuario ue ON e.idUsuario = ue.idUsuario
 WHERE c.estatus = 1
 ORDER BY idCita);
 
@@ -104,15 +108,91 @@ SELECT c.idCita, c.fechaCita, c.horaCita, c.estatus AS citaEstatus,
        cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
        pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
        pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
-       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken,
        e.idEmpleado, e.numeroUnico AS empleadoNumeroUnico, e.puesto AS empleadoPuesto, e.estatus AS empleadoEstatus,
        pe.idPersona AS idPersonaEmpleado, pe.nombre AS empleadoNombre, pe.apellidoP AS empleadoApellidoP,
        pe.apellidoM AS empleadoApellidoM, pe.genero AS empleadoGenero, pe.domicilio AS empleadoDomicilio,
-       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail
+       pe.telefono AS empleadoTelefono, pe.rfc AS empleadoRFC, pe.email AS empleadoEmail, ue.token AS empleadoToken
 FROM cita c
 INNER JOIN cliente cl ON c.idCliente = cl.idCliente
 INNER JOIN empleado e ON c.idEmpleado = e.idEmpleado
 INNER JOIN persona pc ON cl.idPersona = pc.idPersona
 INNER JOIN persona pe ON e.idPersona = pe.idPersona
+INNER JOIN usuario uc ON cl.idUsuario = uc.idUsuario
+INNER JOIN usuario ue ON e.idUsuario = ue.idUsuario
 WHERE c.estatus = 0
 ORDER BY idCita);
+
+-- Vista para ver a todas las mascotas con los datos de los clientes que son sus dueños
+DROP VIEW IF EXISTS v_mascotas;
+CREATE VIEW v_mascotas AS(
+SELECT m.idMascota, m.numeroUnico AS mascotaNumeroUnico, m.collar, m.fotografia, m.nombre AS mascotaNombre,
+	   m.especie, m.raza, m.genero AS mascotaGenero, m.edad, m.peso, m.detalles, m.estatus AS mascotaEstatus,
+       cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
+       pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
+       pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken 
+FROM mascota m
+INNER JOIN (
+    SELECT idCliente, numeroUnico, estatus, idPersona, idUsuario 
+    FROM cliente
+) cl ON m.idCliente = cl.idCliente
+INNER JOIN (
+    SELECT idPersona, nombre, apellidoP, apellidoM, genero, domicilio, telefono, rfc, email 
+    FROM persona
+) pc ON cl.idPersona = pc.idPersona
+INNER JOIN (
+    SELECT idUsuario, token 
+    FROM usuario
+) uc ON cl.idUsuario = uc.idUsuario
+ORDER BY idMascota);
+
+-- Vista para ver a las mascotas activas con los datos de los clientes que son sus dueños
+DROP VIEW IF EXISTS v_mascotas_activas;
+CREATE VIEW v_mascotas_activas AS(
+SELECT m.idMascota, m.numeroUnico AS mascotaNumeroUnico, m.collar, m.fotografia, m.nombre AS mascotaNombre,
+	   m.especie, m.raza, m.genero AS mascotaGenero, m.edad, m.peso, m.detalles, m.estatus AS mascotaEstatus,
+       cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
+       pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
+       pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken 
+FROM mascota m
+INNER JOIN (
+    SELECT idCliente, numeroUnico, estatus, idPersona, idUsuario 
+    FROM cliente
+) cl ON m.idCliente = cl.idCliente
+INNER JOIN (
+    SELECT idPersona, nombre, apellidoP, apellidoM, genero, domicilio, telefono, rfc, email 
+    FROM persona
+) pc ON cl.idPersona = pc.idPersona
+INNER JOIN (
+    SELECT idUsuario, token 
+    FROM usuario
+) uc ON cl.idUsuario = uc.idUsuario
+WHERE m.estatus = 1
+ORDER BY idMascota);
+
+-- Vista para ver a las mascotas inactivas con los datos de los clientes que son sus dueños
+DROP VIEW IF EXISTS v_mascotas_inactivas;
+CREATE VIEW v_mascotas_inactivas AS(
+SELECT m.idMascota, m.numeroUnico AS mascotaNumeroUnico, m.collar, m.fotografia, m.nombre AS mascotaNombre,
+	   m.especie, m.raza, m.genero AS mascotaGenero, m.edad, m.peso, m.detalles, m.estatus AS mascotaEstatus,
+       cl.idCliente, cl.numeroUnico AS clienteNumeroUnico, cl.estatus AS clienteEstatus,
+       pc.idPersona AS idPersonaCliente, pc.nombre AS clienteNombre, pc.apellidoP AS clienteApellidoP, 
+       pc.apellidoM AS clienteApellidoM, pc.genero AS clienteGenero, pc.domicilio AS clienteDomicilio,
+       pc.telefono AS clienteTelefono, pc.rfc AS clienteRFC, pc.email AS clienteEmail, uc.token AS clienteToken 
+FROM mascota m
+INNER JOIN (
+    SELECT idCliente, numeroUnico, estatus, idPersona, idUsuario 
+    FROM cliente
+) cl ON m.idCliente = cl.idCliente
+INNER JOIN (
+    SELECT idPersona, nombre, apellidoP, apellidoM, genero, domicilio, telefono, rfc, email 
+    FROM persona
+) pc ON cl.idPersona = pc.idPersona
+INNER JOIN (
+    SELECT idUsuario, token 
+    FROM usuario
+) uc ON cl.idUsuario = uc.idUsuario
+WHERE m.estatus = 0
+ORDER BY idMascota);

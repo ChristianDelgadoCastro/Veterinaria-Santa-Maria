@@ -12,6 +12,8 @@ public class Historialmedico {
     
     int idHistorial;
     Mascota mascota;
+    String fecha;
+    String diagnostico;
 
     public int getIdHistorial() {
         return idHistorial;
@@ -29,17 +31,35 @@ public class Historialmedico {
         this.mascota = mascota;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
     public Historialmedico() {
     }
 
-    public Historialmedico(int idHistorial, Mascota mascota) {
+    public Historialmedico(int idHistorial, Mascota mascota, String fecha, String diagnostico) {
         this.idHistorial = idHistorial;
         this.mascota = mascota;
+        this.fecha = fecha;
+        this.diagnostico = diagnostico;
     }
 
     @Override
     public String toString() {
-        return "Historialmedico{" + "idHistorial=" + idHistorial + ", mascota=" + mascota + '}';
+        return "Historialmedico{" + "idHistorial=" + idHistorial + ", mascota=" + mascota + ", fecha=" + fecha + ", diagnostico=" + diagnostico + '}';
     }
     
 }

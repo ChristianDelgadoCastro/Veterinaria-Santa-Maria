@@ -77,13 +77,15 @@ CREATE TABLE cita(
 CREATE TABLE mascota(
 	idMascota INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     numeroUnico VARCHAR(65),
-    nombre VARCHAR(50),
-    especie VARCHAR(50),
-    raza VARCHAR(40),
-    genero VARCHAR(6),
-    edad VARCHAR(50),
-    peso DOUBLE,
-    descripcion LONGTEXT,
+    collar LONGTEXT,
+    fotografia LONGTEXT,
+    nombre VARCHAR(50) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    raza VARCHAR(40) NOT NULL,
+    genero VARCHAR(6) NOT NULL,
+    edad VARCHAR(50) NOT NULL,
+    peso DOUBLE NOT NULL,
+    detalles VARCHAR(200) NOT NULL,
     estatus INT(11) NOT NULL DEFAULT 1,
     idCliente INT(11) NOT NULL,
     CONSTRAINT fk_mascota_cliente FOREIGN KEY (idCliente)
@@ -94,6 +96,8 @@ CREATE TABLE mascota(
 CREATE TABLE historialMedico(
 	idHistorial	 INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     idMascota INT(11),
+    fecha DATE NOT NULL,
+    diagnostico VARCHAR(200)  NOT NULL,
     CONSTRAINT fk_historialMedico_mascota FOREIGN KEY (idMascota)
 				REFERENCES mascota(idMascota) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -108,4 +112,3 @@ CREATE TABLE detalle_Cita(
     CONSTRAINT fk_detalleCita_cita FOREIGN KEY (idCita)
 				REFERENCES cita(idCita) ON DELETE CASCADE ON UPDATE CASCADE
 );
-

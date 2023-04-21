@@ -11,7 +11,6 @@ package com.at.vsm.model;
 public class Detalle_cita {
     
     int idDetalle_Cita;
-    String nombreServicio;
     String nombreTratamiento;
     float costoTratamiento;
     String nombreProducto;
@@ -23,14 +22,6 @@ public class Detalle_cita {
 
     public void setIdDetalle_Cita(int idDetalle_Cita) {
         this.idDetalle_Cita = idDetalle_Cita;
-    }
-
-    public String getNombreServicio() {
-        return nombreServicio;
-    }
-
-    public void setNombreServicio(String nombreServicio) {
-        this.nombreServicio = nombreServicio;
     }
 
     public String getNombreTratamiento() {
@@ -68,9 +59,8 @@ public class Detalle_cita {
     public Detalle_cita() {
     }
 
-    public Detalle_cita(int idDetalle_Cita, String nombreServicio, String nombreTratamiento, float costoTratamiento, String nombreProducto, Cita cita) {
+    public Detalle_cita(int idDetalle_Cita, String nombreTratamiento, float costoTratamiento, String nombreProducto, Cita cita) {
         this.idDetalle_Cita = idDetalle_Cita;
-        this.nombreServicio = nombreServicio;
         this.nombreTratamiento = nombreTratamiento;
         this.costoTratamiento = costoTratamiento;
         this.nombreProducto = nombreProducto;
@@ -79,7 +69,7 @@ public class Detalle_cita {
 
     @Override
     public String toString() {
-        return "Detalle_cita{" + "idDetalle_Cita=" + idDetalle_Cita + ", nombreServicio=" + nombreServicio + ", nombreTratamiento=" + nombreTratamiento + ", costoTratamiento=" + costoTratamiento + ", nombreProducto=" + nombreProducto + ", cita=" + cita + '}';
+        return "Detalle_cita{" + "idDetalle_Cita=" + idDetalle_Cita + ", nombreTratamiento=" + nombreTratamiento + ", costoTratamiento=" + costoTratamiento + ", nombreProducto=" + nombreProducto + ", cita=" + cita + '}';
     }
-    
+        
 }

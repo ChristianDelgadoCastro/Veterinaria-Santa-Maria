@@ -75,5 +75,27 @@ public class PruebasCitas {
         } catch (Exception e) {
             System.out.println("Error al obtener citas inactivas: " + e.getMessage());
         }
+        
+        // Obtener citas buscadas activas
+        try {
+            List<Cita> citas = controllerCitas.searchActives("50dc0ebaf6b502911acfcda6483a562dab5c3af305eb18b0ae7e5324853cd507");
+            System.out.println("Citas buscadas activas:");
+            for (Cita c : citas) {
+                System.out.println(c);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener citas inactivas: " + e.getMessage());
+        }
+        
+        // Obtener citas buscadas inactivas
+        try {
+            List<Cita> citas = controllerCitas.searchInactives("cbaede46f3663328523fac61b62bc1920b82afacf64afdf77509b237c4c7e823");
+            System.out.println("Citas buscadas activas:");
+            for (Cita c : citas) {
+                System.out.println(c);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener citas inactivas: " + e.getMessage());
+        }
     }
 }

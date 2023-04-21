@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--
+    Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+    Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de usuario</title>
+        <link rel="stylesheet" type="text/css" href="../style/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../style/font_awesome_5_15_3/css/fontawesome.min.css">
+        <link href="../style/font_awesome_5_15_3/css/all.css" rel="stylesheet">
+        <link href="../style/sweetalert2/sweetalert2.css" rel="stylesheet">
+        <style>
+
+            body{
+                background-image: var(--bg-image);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            :root {
+                --bg-image: url('../media/perritoLogin.png');
+            }
+
+            .card {
+                margin-top: 50px;
+                margin-bottom: 50px;
+                border-radius: 15px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                background-color: #fff;
+                overflow: hidden;
+            }
+
+            .card-header {
+                background-color: #007bff;
+                color: #fff;
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            .card-body {
+                padding: 30px;
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+            label {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            input.form-control {
+                height: 50px;
+                border-radius: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .btn-primary {
+                background-color: #28a745;
+                border-color: #28a745;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 12px 40px;
+                border-radius: 25px;
+                margin-top: 25px;
+            }
+
+            .btn-primary:hover {
+                background-color: #218838;
+                border-color: #1e7e34;
+            }
+
+            .fa-user-circle {
+                font-size: 60px;
+                color: #28a745;
+                margin-bottom: 20px;
+            }
+
+            .error-message {
+                color: red;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Registro de nuevo usuario
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="txtNombre">Nombre:</label>
+                                    <input type="text" class="form-control" id="txtNombre" placeholder="Ingresa tu nombre(s)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoP">Apellido Paterno:</label>
+                                    <input type="text" class="form-control" id="txtApellidoP" placeholder="Ingresa tu apellido paterno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtApellidoM">Apellido Paterno:</label>
+                                    <input type="text" class="form-control" id="txtApellidoM" placeholder="Ingresa tu apellido materno">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmbGenero">G&eacute;nero:</label>
+                                    <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbGenero">
+                                        <option>G&eacute;nero:</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                        <option value="O">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtDomicilio">Domicilio</label>
+                                    <input type="text" class="form-control" id="txtDomicilio" placeholder="Ingresa domicilio">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtTelefono">Telefono</label>
+                                    <input type="text" class="form-control" id="txtTelefono" placeholder="Ingresa tu número de telefono">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtRFC">RFC</label>
+                                    <input type="text" class="form-control" id="txtRFC" placeholder="Ingresa tu RFC">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtEmail">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="txtEmail" placeholder="Ingresa tu correo electrónico">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtUsuario">Usuario</label>
+                                    <input type="email" class="form-control" id="txtUsuario" placeholder="Ingresa tu nombre de usuario">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtContrasenia">Contrase&ntilde;a</label>
+                                    <input type="password" class="form-control" id="txtContrasenia" placeholder="Ingresa tu contrase&ntilde;a">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmbRol">G&eacute;nero:</label>
+                                    <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbRol">
+                                        <option>Selecciona tu rol</option>
+                                        <option value="Cliente">Cliente</option>
+                                        <option value="Empleado">Empleado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imgFotografia" class="form-label">Fotograf&iacute;a:</label>
+                                    <input style="background-color: rgba(255,255,255,0.8);" class="form-control" type="file" id="imgFotografia" onchange="leerFoto()">
+                                    <input type="hidden" id="txtFotoBase64" name="txtFotoBase64">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cmbPuesto">Si eres empleado, selecciona tu puesto</label>
+                                    <select style="background-color: rgba(255,255,255,0.8);" class="form-select" id="cmbPuesto">
+                                        <option>Puesto:</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Veterinario">Veterinario</option>
+                                        <option value="Secretario">Secretario</option>
+                                    </select>
+                                </div>
+                                <button onclick="registrarNuevoUsuario()" type="button" class="btn btn-success"><i class="fas fa-registered"></i> Registrar Nuevo Usuario</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../style/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="../style/font_awesome_5_15_3/js/all.min.js"></script>
+        <script type="text/javascript" src="../style/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="../style/jspdf.min.js" type="text/javascript"></script>
+        <script src="registro.js" type="text/javascript"></script>
+    </body>
+</html>

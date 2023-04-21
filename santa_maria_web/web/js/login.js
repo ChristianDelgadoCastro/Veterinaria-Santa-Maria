@@ -1,5 +1,4 @@
 
-
 /* global fetch */
 
 let d = document;
@@ -33,9 +32,16 @@ function iniciarSesion() {
                 if (data.error != null) {
                     Swal.fire('Datos Incorrectos', 'Usuario o Contrase&ntilde;a inexistentes', 'error');
                 } else {
+                    let puesto = data.puesto;
                     let idCliente = data.idCliente;
                     if (typeof idCliente === 'undefined') {
-                        window.location.replace("./admin/index.html");
+                        if (puesto === 'Administrador'){
+                            window.location.replace("./admin/index.html");                        
+                        } else {
+                            if (puesto === 'Veterinario'){
+                                window.location.replace("./veterinario/index.html");
+                            }
+                        }
                     } else {
                         window.location.replace("./cliente/index.html");
                     }
@@ -44,6 +50,9 @@ function iniciarSesion() {
                     localStorage.setItem('nombre', data.persona.nombre + ' ' + data.persona.apellidoP + ' ' + data.persona.apellidoM);
                     localStorage.setItem('idCliente', idCliente);
                     localStorage.setItem('idEmpleado', data.idEmpleado);
+                    localStorage.setItem('numeroUnico', data.numeroUnico);
+                    localStorage.setItem('token', data.usuario.token);
+                    localStorage.setItem('puesto', data.puesto);
                 }
             });
         } catch (error) {
@@ -52,6 +61,8 @@ function iniciarSesion() {
         }
     }
 }
+
+
 
 async function cerrarSesion() {
 
@@ -100,7 +111,7 @@ async function cerrarSesion() {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Consumir API para cerrar sesión y redirigir a la página principal
-                fetch('http://localhost:8080/santa_maria_web/servicio/log/out', {
+                fetch('/santa_maria_web/servicio/log/out', {
                     method: "POST",
                     headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
                     body: params
@@ -115,7 +126,7 @@ async function cerrarSesion() {
 
         // Cerrar sesión automáticamente después de 5 segundos
         const automaticLogoutTimer = setTimeout(() => {
-            fetch('http://localhost:8080/santa_maria_web/servicio/log/out', {
+            fetch('/santa_maria_web/servicio/log/out', {
                 method: "POST",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
                 body: params
@@ -174,7 +185,7 @@ function cargarModuloClientes(){
 }
 
 let cit_emp; //para inicializar citas que agenden los empleados
-function cargarModuloCitas(){
+function cargarModuloCitasAdmin(){
     fetch("citas/citas.html")
             .then(response => {
                 return response.text();
@@ -186,6 +197,57 @@ function cargarModuloCitas(){
                         .then(obj => {
                             cit_emp = obj;
                             cit_emp.inicializarCitas();
+                        });
+            });
+}
+
+let cit_cli; //para inicializar citas que agenden los clientes
+function cargarModuloCitasCliente(){
+    fetch("citas/citas.html")
+            .then(response => {
+                return response.text();
+            })
+            .then(function (html)
+            {
+                d.getElementById('contenedor_principal').innerHTML = html;
+                import('../cliente/citas/citas.js')
+                        .then(obj => {
+                            cit_cli = obj;
+                            cit_cli.inicializarCitas();
+                        });
+            });
+}
+
+let cit_vet; //para inicializar citas que agenden los clientes
+function cargarModuloCitasVeterinario(){
+    fetch("citas/citas.html")
+            .then(response => {
+                return response.text();
+            })
+            .then(function (html)
+            {
+                d.getElementById('contenedor_principal').innerHTML = html;
+                import('../veterinario/citas/citas.js')
+                        .then(obj => {
+                            cit_vet = obj;
+                            cit_vet.inicializarCitas();
+                        });
+            });
+}
+
+let adm_mas;
+function cargarModuloMascotasAdmin(){
+    fetch("mascotas/mascota.html")
+            .then(response => {
+                return response.text();
+            })
+            .then(function (html)
+            {
+                d.getElementById('contenedor_principal').innerHTML = html;
+                import('../admin/mascotas/mascota.js')
+                        .then(obj => {
+                            adm_mas = obj;
+                            adm_mas.inicializarMascotas();
                         });
             });
 }

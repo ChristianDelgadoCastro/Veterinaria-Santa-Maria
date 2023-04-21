@@ -5,7 +5,7 @@
 
 USE veterinaria;
 
--- Primero a los veterinarios
+-- Primero a los 3 veterinarios
 
 CALL insertarEmpleado("Alejandro", "Rodriguez", "Garcia", "M", "Calle Emiliano Zapata s/n Col. Las Joyas, Leon, Guanajuato", "4795645255","RODA010597", "arodriguez@santamaria.com",
 					  "alejandro", "veterinario", "", "Veterinario",
@@ -19,7 +19,7 @@ CALL insertarEmpleado("Aurora Guadalupe", "Ortega", "Saucedo", "F", "Blvd Delta 
 					  "aurora", "veterinario", "", "Veterinario",
                       @out1, @out2, @out3, @out4);
                       
--- Ahora a los secretarios
+-- Ahora a los 2 secretarios
 CALL insertarEmpleado("Irais", "Parra", "Meza", "F", "Blvd Vicente Valtierra 7895 Col. El Mirador, Leon, Guanajuato", "4778596588", "PAMI211200", "iparra@santamaria.com",
 					  "irais", "secretario", "", "Secretario", 
                       @out1, @out2, @out3, @out4);

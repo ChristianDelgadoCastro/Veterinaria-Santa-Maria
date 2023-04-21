@@ -12,13 +12,15 @@ public class Mascota {
     
     int idMascota;
     String numeroUnico;
+    String collar;
+    String fotografia;
     String nombre;
     String especie;
     String raza;
     String genero;
     String edad;
     double peso;
-    String descripcion;
+    String detalles;
     int estatus;
     Cliente cliente;
 
@@ -36,6 +38,22 @@ public class Mascota {
 
     public void setNumeroUnico(String numeroUnico) {
         this.numeroUnico = numeroUnico;
+    }
+
+    public String getCollar() {
+        return collar;
+    }
+
+    public void setCollar(String collar) {
+        this.collar = collar;
+    }
+
+    public String getFotografia() {
+        return fotografia;
+    }
+
+    public void setFotografia(String fotografia) {
+        this.fotografia = fotografia;
     }
 
     public String getNombre() {
@@ -86,12 +104,12 @@ public class Mascota {
         this.peso = peso;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDetalles() {
+        return detalles;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDetalles(String detalles) {
+        this.detalles = detalles;
     }
 
     public int getEstatus() {
@@ -113,23 +131,20 @@ public class Mascota {
     public Mascota() {
     }
 
-    public Mascota(int idMascota, String numeroUnico, String nombre, String especie, String raza, String genero, String edad, double peso, String descripcion, int estatus, Cliente cliente) {
+    public Mascota(int idMascota, String numeroUnico, String collar, String fotografia, String nombre, String especie, String raza, String genero, String edad, double peso, String detalles, int estatus, Cliente cliente) {
         this.idMascota = idMascota;
         this.numeroUnico = numeroUnico;
+        this.collar = collar;
+        this.fotografia = fotografia;
         this.nombre = nombre;
         this.especie = especie;
         this.raza = raza;
         this.genero = genero;
         this.edad = edad;
         this.peso = peso;
-        this.descripcion = descripcion;
+        this.detalles = detalles;
         this.estatus = estatus;
         this.cliente = cliente;
-    }
-
-    @Override
-    public String toString() {
-        return "Mascota{" + "idMascota=" + idMascota + ", numeroUnico=" + numeroUnico + ", nombre=" + nombre + ", especie=" + especie + ", raza=" + raza + ", genero=" + genero + ", edad=" + edad + ", peso=" + peso + ", descripcion=" + descripcion + ", estatus=" + estatus + ", cliente=" + cliente + '}';
     }
     
 }

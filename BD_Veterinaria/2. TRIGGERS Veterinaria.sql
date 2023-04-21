@@ -1,4 +1,4 @@
--- DATOS DE BASE DE DATOS VETERINARIA
+-- TRIGGERS DE BASE DE DATOS VETERINARIA
 -- AUTOR: David Alonso Floreano Parra
 -- Fecha de codificación: 06/03/2023
 -- Fecha de correción: 02/04/2023
@@ -17,8 +17,7 @@ BEGIN
 	SELECT AUTO_INCREMENT INTO var_idMascota
 	FROM information_schema.TABLES 
 	WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'mascota';
-	SET NEW.numeroUnico = CONCAT('M', var_idMascota, '-', NEW.especie, '-C', NEW.idCliente);
+	SET NEW.numeroUnico = CONCAT('M', var_idMascota, '-', NEW.especie, '-C', NEW.idCliente, '-CLV', round( rand()*100000));
 END
 $$
 DELIMITER ;
-

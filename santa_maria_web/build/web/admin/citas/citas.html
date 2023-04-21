@@ -8,7 +8,7 @@
                         <div class="row">                            
                             <div class="col-8">
                                 <label for="txtIdCita" class="form-label">ID Cita</label>
-                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdCita" readonly="">
+                                <input style="background-color: rgba(255,255,255,0.6);" type="text" class="form-control" id="txtIdCita" value="0" readonly="">
                                 <input type="hidden" id="txtEstatusCita" name="txtEstatusCita">
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="mb-3">
-                                <button onclick="cit_emp.agendarCita();" type="button" class="btn btn-success"><i class="fas fa-calendar-week"></i> Agendar cita</button>
+                                <button onclick="cit_emp.guardarCita();" type="button" class="btn btn-success"><i class="fas fa-calendar-week"></i> Agendar cita</button>
                                 <button onclick="cit_emp.cambiarEstatus();" type="button" class="btn btn-warning"><i class="fas fa-exchange-alt"></i> Cambiar estatus</button>
                                 <button onclick="cit_emp.limpiarFormulario();" type="button" class="btn btn-secondary"><i class="bi bi-x-lg"></i> Cancelar</button>
                             </div>
@@ -64,6 +64,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Fecha</th>
+                            <th scope="col">Hora</th>
                             <th scope="col">Cliente y Empleado</th>
                             <th scope="col">Estatus</th>
                             <th scope="col">Detalles</th>

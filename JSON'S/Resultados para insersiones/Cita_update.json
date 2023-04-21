@@ -1,0 +1,10 @@
+{"idCita": 2,
+ "fechaCita": "2023-04-08",
+ "horaCita": "15:00:00",
+ "cliente": {
+    "idCliente": 2
+ },
+ "empleado":{
+    "idEmpleado": 4
+ }
+}
