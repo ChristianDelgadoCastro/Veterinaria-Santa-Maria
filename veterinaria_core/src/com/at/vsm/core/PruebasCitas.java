@@ -15,12 +15,12 @@ public class PruebasCitas {
 
         // Insertar cita
         Cliente cliente = new Cliente();
-        cliente.setIdCliente(1);
+        cliente.setIdCliente(2);
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleado(1);
+        empleado.setIdEmpleado(7);
 
         Cita cita = new Cita();
-        cita.setFechaCita("2023-04-07");
+        cita.setFechaCita("2023-04-24");
         cita.setHoraCita("15:30:00");
         cita.setCliente(cliente);
         cita.setEmpleado(empleado);

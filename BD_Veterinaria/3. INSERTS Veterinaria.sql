@@ -64,7 +64,7 @@ VALUES ("AARV785468", "Secretario", 5, 5);
 -- Insersiones en la tabla PERSONA
 -- PERSONA 6
 INSERT INTO persona(nombre, apellidoP, apellidoM, genero, domicilio, telefono, rfc, email)
-VALUES ("Maria del Rosario", "Ortega", "Herrera", "F", "Blvd. Rio Mayo s/n Col. 10 de Mayo, León, Guanajuato", "4777845658", "OEHM061003", "rosario@gmail.com");
+VALUES ("Rey Adonaí", "Floreano", "Parra", "M", "Aquiles Serdan #302 Nuevo Valle de Moreno, León, Guanajuato", "4772567810", "FOPE051107", "adonai@gmail.com");
 -- PERSONA 7
 INSERT INTO persona(nombre, apellidoP, apellidoM, genero, domicilio, telefono, rfc, email)
 VALUES ("Jesus Emmanuel", "Floreano", "Parra", "M", "Aquiles Serdan #302 Nuevo Valle de Moreno, León, Guanajuato", "4772547821", "FOPJ281099", "emmanuel@gmail.com");
@@ -81,7 +81,7 @@ VALUES ("Bernardo de Jesús", "Floreano", "Garcia", "M", "Aquiles Serdán #302 N
 -- Insersiones en la tabla USUARIO
 -- USUARIO 6
 INSERT INTO usuario(nombreUsuario, contrasenia, rol, fotografia)
-VALUES ("chays", "1234", "Cliente", "");
+VALUES ("adonai", "1234", "Cliente", "");
 -- USUARIO 7
 INSERT INTO usuario(nombreUsuario, contrasenia, rol, fotografia)
 VALUES ("chuy", "1234", "Cliente", "");
@@ -98,7 +98,7 @@ VALUES ("bernardo", "1234", "Cliente", "");
 -- Insersiones en la tabla CLIENTE
 -- CLIENTE 1
 INSERT INTO cliente(numeroUnico, idPersona, idUsuario)
-VALUES ("OEHM74859867", 6, 6);
+VALUES ("FOPE74859867", 6, 6);
 -- CLIENTE 2
 INSERT INTO cliente(numeroUnico, idPersona, idUsuario)
 VALUES ("FOPJ78456985", 7, 7);

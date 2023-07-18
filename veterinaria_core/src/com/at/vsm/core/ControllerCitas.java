@@ -29,7 +29,7 @@ public class ControllerCitas {
             String query = "SELECT COUNT(*) FROM v_citas_activas WHERE fechaCita = ? "
                     + "AND horaCita = ? "
                     + "AND idCliente = ? "
-                    + "AND idEmpleado = ?";
+                    + "OR idEmpleado = ?";
             pstmt = conn.prepareStatement(query);
             pstmt.setString(1, c.getFechaCita());
             pstmt.setString(2, c.getHoraCita());

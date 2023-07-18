@@ -16,7 +16,7 @@
         </servlet-class>
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.lonches.sucuzu.rest</param-value>
+            <param-value>com.at.vsm.rest</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
